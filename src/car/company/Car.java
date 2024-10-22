@@ -1,16 +1,19 @@
 package car.company;
 
+import java.util.Random;
+
 public class Car {
 
+        Random random = new Random();
         String model;
         String color;
-        int carPositionX;
-        int carPositionY;
-        final int gasStationPositionX = 70;
-        final int gasStationPositionY = 120;
-        int speed;
+        int carPositionX = random.nextInt();
+        int carPositionY = random.nextInt();
+        final int gasStationPositionX = 55449966;
+        final int gasStationPositionY = 55881144;
+        int speed = random.nextInt(350);
         int targetSpeed;
-        int fuelLevel;
+        int fuelLevel = random.nextInt(100);
 
         void showAttributes() {
                 System.out.println("************************");
@@ -30,6 +33,8 @@ public class Car {
                         speed = targetSpeed;
                         System.out.println("The speed increased to " + targetSpeed + " km/h.");
                 }
+                carPositionX = random.nextInt();
+                carPositionY = random.nextInt();
                 showAttributes();
         }
 
@@ -38,6 +43,9 @@ public class Car {
                         speed = 0;
                         System.out.println( "The " + model + " stopped.");
                 }
+                carPositionX = random.nextInt();
+                carPositionY = random.nextInt();
+                targetSpeed = 0;
                 showAttributes();
         }
 
@@ -46,8 +54,10 @@ public class Car {
                         carPositionX = gasStationPositionX;
                         carPositionY = gasStationPositionY;
                         fuelLevel = 100;
-                        System.out.println("Now the" + model + " is at the gas station.");
+                        System.out.println("Now the " + model + " is at the gas station.");
                         showAttributes();
+                } else {
+                        System.out.println("Your fuel level is mote than 20%.\nYou can continue to deriving!");
                 }
         }
 }
